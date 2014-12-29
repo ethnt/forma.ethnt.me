@@ -1,0 +1,9 @@
+javascripts:
+  application:
+    - jsc/lib/vendor/jquery.js
+    - jsc/lib/vendor/fitvids.js
+    - jsc/application.js
+
+stylesheets:
+  application:
+    - css/application.css

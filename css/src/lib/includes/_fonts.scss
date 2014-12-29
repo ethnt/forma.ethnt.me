@@ -1,0 +1,35 @@
+/*
+  Form
+    file: css/src/lib/includes/_fonts.scss
+*/
+
+
+@import "compass/typography/vertical_rhythm";
+
+$base-font-size: 16px;
+$base-light-height: 16px * 2em;
+
+@include establish-baseline();
+
+$sans-serif: "soleil", Helvetica, Arial, sans-serif;
+
+$regular: 400;
+$book: 500;
+$semibold: 600;
+$bold: 700;
+
+@mixin font-size($size) {
+  font-size: $size;
+  font-size: calculateRem($size);
+}
+
+@mixin font-smoothing($value: antialiased) {
+  @if $value == antialiased {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  @else {
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: auto;
+  }
+}

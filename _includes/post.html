@@ -1,0 +1,47 @@
+<article class="post">
+  <header>
+    <h2><a href="{{ current.url }}">{{ current.title }}</a></h2>
+    <section class="assets">
+      {% for asset in current.assets %}
+        <figure>
+          <a href="{{ asset.url }}">
+            {% if asset.type == 'image' %}
+              <img src="{{ asset.url }}">
+            {% elsif asset.type == 'audio' %}
+              <audio><source src="{{ asset.url }}" type="{{ asset.content_type }}"></audio>
+            {% elsif asset.type == 'video' %}
+              <video><source src="{{ asset.url }}" type="{{ asset.content_type }}"></video>
+            {% elsif asset.type == 'other' %}
+              <a href="{{ asset.url }}">Download {{ asset.filename }}</a>
+            {% endif %}
+          </a>
+        </figure>
+      {% endfor %}
+      {% if current.meta['video'] %}
+        <figure>
+          {{ current.meta['video'] }}
+        </figure>
+      {% endif %}
+    </section>
+  </header>
+  <div class="content">
+    {{ current.body }}
+  </div>
+  <footer>
+    <p class="meta"><time datetime="{{ current.date | date: '%F %T' }}">{{ current.date | date: '%B %d, %Y' }}</time></p>
+    <nav>
+      <article class="next">
+        {% if current.next %}
+          <h3>Newer</h3>
+          <p><a href="{{ current.next.url }}">{{ current.next.title }}</a></p>
+        {% endif %}
+      </article>
+      <article class="previous">
+        {% if current.previous %}
+          <h3>Older</h3>
+          <p><a href="{{ current.previous.url }}">{{ current.previous.title }}</a></p>
+        {% endif %}
+      </article>
+    </nav>
+  </footer>
+</article>
