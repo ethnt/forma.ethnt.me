@@ -1,5 +1,5 @@
 /*
-  Form
+  Forma
     file: css/src/application.scss
 */
 
@@ -9,6 +9,9 @@
 /*
   = Appendix
     I. Universal
+    II. Header
+    III. Main
+    IV. Footer
 */
 
 
@@ -117,7 +120,6 @@ header#header {
   margin-top: rhythm(3);
 
   section {
-    // @include row;
     @include row;
   }
 
